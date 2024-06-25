@@ -15,9 +15,10 @@ import ProductCardSideNav from "./ProductCardSideNav";
 import { useNavigate } from "react-router-dom";
 interface Props {
   item: ProductProps;
+  setSearchText?: any;
 }
 
-const ProductCard = ({ item }: Props) => {
+const ProductCard = ({ item, setSearchText }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigation = useNavigate();
 
@@ -32,6 +33,7 @@ const ProductCard = ({ item }: Props) => {
 
   const handleProduct = () => {
     navigation(`/product/${item?._id}`);
+    setSearchText && setSearchText("");
   };
   return (
     <div className="border border-gray-200 rounded-lg p-1 overflow-hidden hover:border-black duration-200 cursor-pointer">
@@ -62,7 +64,7 @@ const ProductCard = ({ item }: Props) => {
           <MdOutlineStarOutline />
           <MdOutlineStarOutline />
         </div>
-        <AddToCartBtn />
+        <AddToCartBtn product={item} />
       </div>
       <Transition appear show={isOpen}>
         <Dialog
