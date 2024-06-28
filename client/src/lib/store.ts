@@ -29,10 +29,10 @@ interface StoreType {
   removeFromCart: (productId: number) => void;
   resetCart: () => void;
   // // favorite
-  // favoriteProduct: CartProduct[];
-  // addToFavorite: (product: ProductProps) => Promise<void>;
-  // removeFromFavorite: (productId: number) => void;
-  // resetFavorite: () => void;
+  favoriteProduct: CartProduct[];
+  addToFavorite: (product: ProductProps) => Promise<void>;
+  removeFromFavorite: (productId: number) => void;
+  resetFavorite: () => void;
 }
 
 const customStorage = {
@@ -125,6 +125,34 @@ export const store = create<StoreType>()(
       },
       resetCart: () => {
         set({ cartProduct: [] });
+      },
+      addToFavorite: (product: ProductProps) => {
+        return new Promise<void>((resolve) => {
+          set((state: StoreType) => {
+            const isFavorite = state.favoriteProduct.some(
+              (item) => item._id === product._id
+            );
+            return {
+              favoriteProduct: isFavorite
+                ? state.favoriteProduct.filter(
+                    (item) => item._id !== product._id
+                  )
+                : [...state.favoriteProduct, { ...product }],
+            };
+          });
+          resolve();
+        });
+      },
+
+      removeFromFavorite: (productId: number) => {
+        set((state: StoreType) => ({
+          favoriteProduct: state.favoriteProduct.filter(
+            (item) => item._id !== productId
+          ),
+        }));
+      },
+      resetFavorite: () => {
+        set({ favoriteProduct: [] });
       },
     }),
     {

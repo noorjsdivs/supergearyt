@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { store } from "../lib/store";
-import Container from "../ui/Container";
-import { Link } from "react-router-dom";
-import CartProduct from "../ui/CartProduct";
-import FormattedPrice from "../ui/FormattedPrice";
+import { useEffect, useState } from "react";
 import { FaQuestionCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { store } from "../lib/store";
+import CartProduct from "../ui/CartProduct";
 import CheckoutBtn from "../ui/CheckoutBtn";
+import Container from "../ui/Container";
+import FormattedPrice from "../ui/FormattedPrice";
 
 const Cart = () => {
   const [totalAmt, setTotalAmt] = useState({ regular: 0, discounted: 0 });
-  const { cartProduct } = store();
+  const { cartProduct, currentUser } = store();
 
   const shippingAmt = 25;
   const taxAmt = 15;

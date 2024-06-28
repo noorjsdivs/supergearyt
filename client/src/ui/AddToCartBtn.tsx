@@ -4,15 +4,18 @@ import { store } from "../lib/store";
 import toast from "react-hot-toast";
 import { useEffect, useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
+import PriceTag from "./PriceTag";
 
 const AddToCartBtn = ({
   className,
   title,
   product,
+  showPrice = true,
 }: {
   className?: string;
   title?: string;
   product?: ProductProps;
+  showPrice?: boolean;
 }) => {
   const [existingProduct, setExistingProduct] = useState<ProductProps | null>(
     null
@@ -55,8 +58,36 @@ const AddToCartBtn = ({
     className
   );
 
+  const getRegularPrice = () => {
+    if (existingProduct) {
+      if (product) {
+        return product?.regularPrice * existingProduct?.quantity;
+      }
+    } else {
+      return product?.regularPrice;
+    }
+  };
+
+  const getDiscountedPrice = () => {
+    if (existingProduct) {
+      if (product) {
+        return product?.discountedPrice * product?.quantity;
+      }
+    } else {
+      return product?.discountedPrice;
+    }
+  };
+
   return (
     <>
+      {showPrice && (
+        <div>
+          <PriceTag
+            regularPrice={getRegularPrice()}
+            discountedPrice={getDiscountedPrice()}
+          />
+        </div>
+      )}
       {existingProduct ? (
         <div className="flex self-center items-center justify-center gap-2">
           <button

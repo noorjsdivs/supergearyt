@@ -42,7 +42,7 @@ const CartProduct = ({ product }: { product: ProductProps }) => {
                   amount={product?.discountedPrice * product?.quantity}
                 />
               </p>
-              <AddToCartBtn product={product} />
+              <AddToCartBtn product={product} showPrice={false} />
             </div>
           </div>
           <div className="mt-4 sm:mt-0 sm:pr-9">
