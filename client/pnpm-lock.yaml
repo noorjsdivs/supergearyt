@@ -11,6 +11,9 @@ importers:
       '@headlessui/react':
         specifier: ^2.0.4
         version: 2.0.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@stripe/stripe-js':
+        specifier: ^4.0.0
+        version: 4.0.0
       '@tailwindcss/aspect-ratio':
         specifier: ^0.4.2
         version: 0.4.2(tailwindcss@3.4.4)
@@ -804,6 +807,10 @@ packages:
     resolution: {integrity: sha512-UOo5FdvOL0+eIVTgS4tIdbW+TtnBLWg1YBCcU2KWM7nuNwRz9bksDX1bekJJCpu25N1DVWaCwnT39dVQxzqS8g==}
     cpu: [x64]
     os: [win32]
+
+  '@stripe/stripe-js@4.0.0':
+    resolution: {integrity: sha512-R5zewuzTVPGn4dXkavbgDk8vSILkT5hRlzga10p6JzngR17qKi1fgc27kl58TmaVvgBZGngTRNH2j9kYdvfPGA==}
+    engines: {node: '>=12.16'}
 
   '@swc/helpers@0.5.11':
     resolution: {integrity: sha512-YNlnKRWF2sVojTpIyzwou9XoTNbzbzONwRhOoniEioF1AtaitTvVZblaQRrAzChWQ1bLYyYSWzM18y4WwgzJ+A==}
@@ -2757,6 +2764,8 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.18.0':
     optional: true
+
+  '@stripe/stripe-js@4.0.0': {}
 
   '@swc/helpers@0.5.11':
     dependencies:

@@ -20,8 +20,14 @@ importers:
       nodemon:
         specifier: ^3.1.4
         version: 3.1.4
+      stripe:
+        specifier: ^16.1.0
+        version: 16.1.0
 
 packages:
+
+  '@types/node@20.14.9':
+    resolution: {integrity: sha512-06OCtnTXtWOZBJlRApleWndH4JsRVs1pDCc8dLSQp+7PpUpX3ePdHyeNSFTeSe7FtKyQkrlPvHwJOW3SLd8Oyg==}
 
   accepts@1.3.8:
     resolution: {integrity: sha512-PYAthTa2m2VKxuvSD3DPC/Gy+U+sOA1LAuT8mkmRuvw+NACSaeXEQ+NHcVF7rONl6qcaxV3Uuemwawk+7+SJLw==}
@@ -365,6 +371,10 @@ packages:
     resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
     engines: {node: '>= 0.8'}
 
+  stripe@16.1.0:
+    resolution: {integrity: sha512-syeEEd112om/waJ5gOQ+SaYi+setuidQ4ZIPiQREF4yJeegXhn2HKy6C0JYm7uhVQKfMAvuZ22dIRsnoDv7AMw==}
+    engines: {node: '>=12.*'}
+
   supports-color@5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}
     engines: {node: '>=4'}
@@ -388,6 +398,9 @@ packages:
   undefsafe@2.0.5:
     resolution: {integrity: sha512-WxONCrssBM8TSPRqN5EmsjVrsv4A8X12J4ArBiiayv3DyyG3ZlIg6yysuuSYdZsVz3TKcTg2fd//Ujd4CHV1iA==}
 
+  undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+
   unpipe@1.0.0:
     resolution: {integrity: sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==}
     engines: {node: '>= 0.8'}
@@ -401,6 +414,10 @@ packages:
     engines: {node: '>= 0.8'}
 
 snapshots:
+
+  '@types/node@20.14.9':
+    dependencies:
+      undici-types: 5.26.5
 
   accepts@1.3.8:
     dependencies:
@@ -776,6 +793,11 @@ snapshots:
 
   statuses@2.0.1: {}
 
+  stripe@16.1.0:
+    dependencies:
+      '@types/node': 20.14.9
+      qs: 6.11.0
+
   supports-color@5.5.0:
     dependencies:
       has-flag: 3.0.0
@@ -794,6 +816,8 @@ snapshots:
       mime-types: 2.1.35
 
   undefsafe@2.0.5: {}
+
+  undici-types@5.26.5: {}
 
   unpipe@1.0.0: {}
 
