@@ -4,6 +4,9 @@
   "description": "Admin data backup for ecommerce app",
   "main": "index.mjs",
   "type": "module",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "start": "nodemon index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
